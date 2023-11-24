@@ -6,7 +6,7 @@ session_start();
 
 <head>
 	<meta charset="utf-8">
-	<title>CRUD - Cadastrar</title>
+	<title>Novos Usuários</title>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 </head>
 
@@ -24,10 +24,13 @@ session_start();
 		<label>Nome: </label>
 		<input type="text" name="nome" placeholder="Digite o nome completo"><br><br>
 
-		<label>E-mail: </label>
+		<label>Telefone: </label>
 		<input type="email" name="email" placeholder="Digite o seu melhor e-mail"><br><br>
 
-		<input type="submit" value="Cadastrar">
+		<label>CPF: </label>
+		<input type="text" name="nome" placeholder="Digite o nome completo"><br><br>
+
+		 
 	</form>
 
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
