@@ -10,7 +10,7 @@ include_once("conexao.php");
 	</head>
 	<body>
 		<a href="cadastrar.php">Cadastrar</a><br>
-		<a href="index.php">Listar</a><br>
+	
 		<a href="pesquisar.php">Pesquisar</a><br>
 		<h1>Listar Usuário</h1>
 		<?php
