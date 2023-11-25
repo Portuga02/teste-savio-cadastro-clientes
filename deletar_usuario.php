@@ -10,7 +10,7 @@ if (!empty($con_id || $con_nome)) {
 	$resultado_usuario = mysqli_query($conn, $result_usuario);
 
 	if (mysqli_affected_rows($conn)) {
-		$_SESSION['msg'] = "<p style='color:green;'>Usuário $con_nome, $con_id foi apagado com sucesso</p>";
+		$_SESSION['msg'] = "<p style='color:green;'>Usuário $con_nome,  e seu Id de numero : $con_id,  foi apagado com sucesso</p>";
 		header("Location: index.php");
 	} else {
 
