@@ -33,10 +33,10 @@ $row_usuario = mysqli_fetch_assoc($resultado_usuario);
 		<input type="text" name="con_nome" placeholder="Digite o nome completo" value="<?php echo $row_usuario['con_nome']; ?>"><br><br>
 
 		<label>Telefone: </label>
-		<input type="text" name="con_telefone" placeholder="Digite o seu melhor e-mail" value="<?php echo $row_usuario['con_telefone']; ?>"><br><br>
+		<input type="text" name="con_telefone" placeholder="digite seu telefone" value="<?php echo $row_usuario['con_telefone']; ?>"><br><br>
 
 		<label>CPF: </label>
-		<input type="text" name="con_cpf" placeholder="Digite o seu melhor e-mail" value="<?php echo $row_usuario['con_telefone']; ?>"><br><br>
+		<input type="text" name="con_cpf" placeholder="digite seu cpf sem pontos e traços" value="<?php echo $row_usuario['con_telefone']; ?>"><br><br>
 
 		<input type="submit" value="Editar Usuário">
 	</form>
