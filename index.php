@@ -46,7 +46,7 @@ include_once("conexao.php");
 		echo "CPF: " . $row_usuario['con_cpf'] . "<br>";
 
 		echo "<a href='editar_usuario.php?con_id=" . $row_usuario['con_id'] . "'>Editar</a><br>";
-		echo "<a href='proc_apagar_usuario.php?con_id=" . $row_usuario['con_id'] . "'>Apagar</a><br><hr>";
+		echo "<a href='deletar_usuario?con_nome=" . $row_usuario['con_nome']. '&con_id='.$row_usuario['con_id'] . "'>Apagar</a><br><hr>";
 	}
 
 
