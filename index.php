@@ -11,6 +11,9 @@ include_once("conexao.php");
 </head>
 
 <body>
+	<table class="table-responsive">
+		
+	</table>
 	<a href="cadastrar.php">Cadastrar</a><br>
 
 	<a href="pesquisar.php">Pesquisar</a><br>
@@ -34,13 +37,15 @@ include_once("conexao.php");
 
 	$result_usuarios = "SELECT * FROM contatos LIMIT $inicio, $qnt_result_pg";
 	$resultado_usuarios = mysqli_query($conn, $result_usuarios);
+	
+	
 	while ($row_usuario = mysqli_fetch_assoc($resultado_usuarios)) {
 		echo "ID: " . $row_usuario['con_id'] . "<br>";
 		echo "Nome: " . $row_usuario['con_nome'] . "<br>";
 		echo "Telefone: " . $row_usuario['con_telefone'] . "<br>";
 		echo "CPF: " . $row_usuario['con_cpf'] . "<br>";
 
-		echo "<a href='edit_usuario.php?con_id=" . $row_usuario['con_id'] . "'>Editar</a><br>";
+		echo "<a href='editar_usuario.php?con_id=" . $row_usuario['con_id'] . "'>Editar</a><br>";
 		echo "<a href='proc_apagar_usuario.php?con_id=" . $row_usuario['con_id'] . "'>Apagar</a><br><hr>";
 	}
 

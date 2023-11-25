@@ -30,7 +30,7 @@ include_once "conexao.php";
 				echo "ID: " . $row_usuario['id'] . "<br>";
 				echo "Nome: " . $row_usuario['nome'] . "<br>";
 				echo "E-mail: " . $row_usuario['email'] . "<br>";
-				echo "<a href='edit_usuario.php?id=" . $row_usuario['id'] . "'>Editar</a><br>";
+				echo "<a href='editar_usuario.php?id=" . $row_usuario['id'] . "'>Editar</a><br>";
 				echo "<a href='proc_apagar_usuario.php?id=" . $row_usuario['id'] . "'>Apagar</a><br><hr>";
 			}
 		}
