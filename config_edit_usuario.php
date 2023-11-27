@@ -5,8 +5,10 @@ $con_id = filter_input(INPUT_POST, 'con_id', FILTER_SANITIZE_NUMBER_INT);
 $con_nome = filter_input(INPUT_POST, 'con_nome', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 $con_telefone = filter_input(INPUT_POST, 'con_telefone', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 $con_cpf = filter_input(INPUT_POST, 'con_cpf', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+$bre_id = filter_input(INPUT_POST, 'bre_id', FILTER_SANITIZE_NUMBER_INT);
+$bro_id = filter_input(INPUT_POST, 'bro_id', FILTER_SANITIZE_NUMBER_INT);
 
-$result_usuario = "UPDATE contatos SET con_nome='$con_nome', con_telefone='$con_telefone', con_cpf='$con_cpf' WHERE con_id='$con_id'";
+$result_usuario = "UPDATE contatos SET con_nome='$con_nome', con_telefone='$con_telefone', con_cpf='$con_cpf',bre_id='$bre_id',bro_id='$bro_id ' WHERE con_id='$con_id'";
 
 $resultado_usuario = mysqli_query($conn, $result_usuario);
 

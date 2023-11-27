@@ -1,6 +1,7 @@
 <?php
 session_start();
 include_once("conexao.php");
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -41,41 +42,42 @@ include_once("conexao.php");
         //Receber o número da página
         $pagina_atual = filter_input(INPUT_GET, 'pagina', FILTER_SANITIZE_NUMBER_INT);
         $pagina = (!empty($pagina_atual)) ? $pagina_atual : 1;
-        $qnt_result_pg = 5;
+        $qnt_result_pg = 10;
 
         //calcular o inicio visualização
         $inicio = ($qnt_result_pg * $pagina) - $qnt_result_pg;
 
-        $result_usuarios = "  SELECT
-        contatos.con_id,
-        contatos.con_nome,
-        contatos.con_cpf,
-        contatos.con_telefone,
-        brasil_estados.bro_sigla,
-        brasil_estados.bro_nome,
-        brasil_cidades.bre_nome
-    FROM
-        contatos
-     JOIN brasil_cidades ON contatos.bre_id = brasil_cidades.bre_id 
-         
-     JOIN brasil_estados ON contatos.bro_id = brasil_estados.bro_id LIMIT $inicio, $qnt_result_pg";
+        $result_usuarios = "SELECT
+                            contatos.con_id,
+                            contatos.con_nome,
+                            contatos.con_cpf,
+                            contatos.con_telefone,
+                            brasil_estados.bro_sigla,
+                            brasil_estados.bro_nome,
+                            brasil_cidades.bre_nome
+                        FROM
+                            contatos
+                       LEFT JOIN brasil_cidades ON contatos.bre_id = brasil_cidades.bre_id 
+                            
+                     LEFT JOIN brasil_estados ON contatos.bro_id = brasil_estados.bro_id LIMIT $inicio, $qnt_result_pg";
         
         $resultado_usuarios = mysqli_query($conn, $result_usuarios);
+        
         echo "<table  class='table table-striped' >";
         echo "<thead>";
-        echo "<tr>";
-        echo "<th scope='col'>" . "ID" . "<br/>" . "</th>";
-        echo "<th scope='col'>" . "NOME" . "<br/>" . "</th>";
-        echo "<th scope='col'>" . "TELEFONE" . "<br/>" . "</th>";
-        echo "<th scope='col'>" . "CPF" . "<br/>" . "</th>";
-        echo "<th scope='col'>" . "CIDADE" . "<br/>" . "</th>";
-        echo "<th scope='col'>" . "UF" . "<br/>" . "</th>";
-        echo "<th scope='col'colspan= 2>" . "AÇÕES" . "<br/>" . "</th>";
-        echo "<tr/>";
+            echo "<tr>";
+                echo "<th scope='col'>" . "ID" . "<br/>" . "</th>";
+                echo "<th scope='col'>" . "NOME" . "<br/>" . "</th>";
+                echo "<th scope='col'>" . "TELEFONE" . "<br/>" . "</th>";
+                echo "<th scope='col'>" . "CPF" . "<br/>" . "</th>";
+                echo "<th scope='col'>" . "CIDADE" . "<br/>" . "</th>";
+                echo "<th scope='col'>" . "ESTADO-UF" . "<br/>" . "</th>";
+                echo "<th scope='col'colspan= 2>" . "AÇÕES" . "<br/>" . "</th>";
+            echo "<tr/>";
         echo "</thead>";
-        echo "<tbody>";
-        while ($row_usuario = mysqli_fetch_assoc($resultado_usuarios)) {
-
+        echo "<tbody>";     
+        while ($row_usuario=  mysqli_fetch_assoc($resultado_usuarios)) {
+           
             echo "<td>" . $row_usuario['con_id'] . '</td>';
             echo "<td>" . $row_usuario['con_nome'] . '</td>';
             echo "<td>" . $row_usuario['con_cpf'] . '</td>';
@@ -88,7 +90,7 @@ include_once("conexao.php");
                 "<a class='btn btn-primary'  role='button' href='deletar_usuario?con_nome=" . $row_usuario['con_nome'] . '&con_id=' . $row_usuario['con_id'] . "'>Apagar</a><br><hr>" . "</td>";
             echo "</tr>";
         }
-
+  
         echo "</tbody>";
         echo "</table>";
 

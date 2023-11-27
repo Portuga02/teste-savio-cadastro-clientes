@@ -27,13 +27,11 @@ $row_usuario = mysqli_fetch_assoc($resultado_usuario);
 				<li class="nav-item active">
 					<a class="nav-link" role="button" href="index.php">Voltar ao Home</a><br>
 				</li>
-
-
 			</ul>
 		</div>
 	</nav>
 
-	<div class="col-sm-12"> 
+	<div class="col-sm-12">
 		<h1>Edição de Usuários da Plataforma</h1>
 		<?php
 		if (isset($_SESSION['msg'])) {
@@ -44,17 +42,56 @@ $row_usuario = mysqli_fetch_assoc($resultado_usuario);
 		<form class="form-group" method="POST" action="config_edit_usuario.php">
 
 			<input type="hidden" name="con_id" value="<?php echo $row_usuario['con_id']; ?>">
+			<div class="form-row">
+				<div class="col-md-3 mb-3">
+					<label for="validationCustom01">Nome</label>
+					<input type="text" name="con_nome" class="form-control" id="validationCustom01" value="<?php echo $row_usuario['con_nome'];  ?>">
+					<div class="valid-feedback">
+						Digite o Seu nome!
+					</div>
+				</div>
 
-			<label>Nome: </label>
-			<input type="text" name="con_nome" placeholder="Digite o nome completo" value="<?php echo $row_usuario['con_nome']; ?>"><br><br>
+			</div>
+			<div class="form-row">
+				<div class="col-md-3 mb-3">
+					<label for="validationCustom03">CPF</label>				
+					<input type="text" name="con_cpf" class="form-control" placeholder="CPF" id="validationCustom03"  value="<?php echo $row_usuario['con_cpf']; ?>">
+					<div class="invalid-feedback">
+						Digite seu CPF com traços e pontos!
+					</div>
+				</div>
+				<div class="col-md-3 mb-3">
+					<label for="validationCustom04">Telefone</label>
+					<input type="text" name="con_telefone" class="form-control" id="validationCustom04" value="<?php echo $row_usuario['con_telefone'];?> "/>
+					<div class="invalid-feedback">
+						Digite seu telefone com DDD!
+					</div>
+				</div>
+				<div class="col-md-3 mb-3">
+					<label for="validationCustom05">Cidade</label>
+					<select class="custom-select" name="bre_id" id="validationCustom05">
 
-			<label>Telefone: </label>
-			<input type="text" name="con_telefone" placeholder="digite seu telefone" value="<?php echo $row_usuario['con_telefone']; ?>"><br><br>
+						<?php
+						$sql  = mysqli_query($conn, "SELECT bre_id,bre_nome FROM brasil_cidades ");
 
-			<label>CPF: </label>
-			<input type="text" name="con_cpf" placeholder="digite seu cpf sem pontos e traços" value="<?php echo $row_usuario['con_telefone']; ?>"><br><br>
+						while ($resultado = mysqli_fetch_array($sql)) { ?>
+							<option value="<?= $resultado['bre_id'] ?>"><?php echo $resultado['bre_nome']; ?></option>
+						<?php } ?>
+					</select>
+				</div>
+				<div class="col-md-3 mb-3">
+					<label for="validationCustom06">Estado</label>
+					<select class="custom-select" name="bro_id" id="validationCustom06">
+						<?php
+						$sql  = mysqli_query($conn, "SELECT bro_id, bro_nome FROM brasil_estados ");
 
-			<input type="submit" value="Editar Usuário">
+						while ($resultado = mysqli_fetch_array($sql)) { ?>
+							<option value="<?= $resultado['bro_id'] ?>"><?php echo $resultado['bro_nome']; ?></option>
+						<?php } ?>
+					</select>
+				</div>
+			</div>
+			<button class="btn btn-primary" type="submit">Enviar Dados</button>
 		</form>
 	</div>
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
