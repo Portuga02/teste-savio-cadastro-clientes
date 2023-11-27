@@ -45,8 +45,7 @@ include_once("conexao.php");
 					</div>
 				</div>
 
-			</div>
-			<div class="form-row">
+
 				<div class="col-md-3 mb-3">
 					<label for="validationCustom03">CPF</label>
 					<input type="text" name="con_cpf" class="form-control" placeholder="CPF sem traços e numeros" id="validationCustom03" required>

@@ -13,9 +13,13 @@ $result_usuario = "UPDATE contatos SET con_nome='$con_nome', con_telefone='$con_
 $resultado_usuario = mysqli_query($conn, $result_usuario);
 
 if (mysqli_affected_rows($conn)) {
-	$_SESSION['msg'] = "<p style='color:green;'>Usuário editado com sucesso</p>";
+	$_SESSION['msg'] = "<div class='alert alert-success'>
+							<p>Usuário editado com sucesso</p>
+			</div>";
 	header("Location: index.php");
 } else {
-	$_SESSION['msg'] = "<p style='color:red;'>Usuário não foi editado com sucesso, você tem que selecionar ao menos um campo para se editado</p>";
+	$_SESSION['msg'] = "<div class='alert alert-danger'>
+							<p >Usuário não foi editado com sucesso, você tem que selecionar ao menos um campo para se editado</p> 
+						</div>";
 	header("Location: editar_usuario.php?con_id=$con_id");
 }

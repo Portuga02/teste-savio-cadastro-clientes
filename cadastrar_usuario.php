@@ -14,9 +14,9 @@ $result_usuario = "INSERT INTO contatos (con_nome,con_telefone,con_cpf,bre_id,br
 $resultado_usuario = mysqli_query($conn, $result_usuario);
 
 if (mysqli_insert_id($conn)) {
-	$_SESSION['msg'] = "<p style='color:green;'>Usuário cadastrado com sucesso</p>";
+	$_SESSION['msg'] = "<div class='alert alert-success'><p>Usuário cadastrado com sucesso</p> </div>";
 	header("Location: index.php");
 } else {
-	$_SESSION['msg'] = "<p style='color:red;'>Usuário não foi cadastrado com sucesso</p>";
+	$_SESSION['msg'] = "<div class='alert alert-danger'><p >Usuário não foi cadastrado com sucesso</p>  </div>";
 	header("Location: cadastrar.php");
 }

@@ -43,7 +43,7 @@ $row_usuario = mysqli_fetch_assoc($resultado_usuario);
 
 			<input type="hidden" name="con_id" value="<?php echo $row_usuario['con_id']; ?>">
 			<div class="form-row">
-				<div class="col-md-3 mb-3">
+				<div class="col-md-3">
 					<label for="validationCustom01">Nome</label>
 					<input type="text" name="con_nome" class="form-control" id="validationCustom01" value="<?php echo $row_usuario['con_nome'];  ?>">
 					<div class="valid-feedback">
@@ -51,18 +51,17 @@ $row_usuario = mysqli_fetch_assoc($resultado_usuario);
 					</div>
 				</div>
 
-			</div>
-			<div class="form-row">
-				<div class="col-md-3 mb-3">
-					<label for="validationCustom03">CPF</label>				
-					<input type="text" name="con_cpf" class="form-control" placeholder="CPF" id="validationCustom03"  value="<?php echo $row_usuario['con_cpf']; ?>">
+
+				<div class="col-sm-3 ">
+					<label for="validationCustom03">CPF</label>
+					<input type="text" name="con_cpf" class="form-control" placeholder="CPF" id="validationCustom03" value="<?php echo $row_usuario['con_cpf']; ?>">
 					<div class="invalid-feedback">
 						Digite seu CPF com traços e pontos!
 					</div>
 				</div>
 				<div class="col-md-3 mb-3">
 					<label for="validationCustom04">Telefone</label>
-					<input type="text" name="con_telefone" class="form-control" id="validationCustom04" value="<?php echo $row_usuario['con_telefone'];?> "/>
+					<input type="text" name="con_telefone" class="form-control" id="validationCustom04" value="<?php echo $row_usuario['con_telefone']; ?> " />
 					<div class="invalid-feedback">
 						Digite seu telefone com DDD!
 					</div>

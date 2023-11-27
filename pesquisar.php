@@ -50,8 +50,9 @@ include_once "conexao.php";
 					LEFT JOIN brasil_estados ON contatos.bro_id = brasil_estados.bro_id LIMIT $inicio, $qnt_result_pg";
 
 	$resultado_usuario = mysqli_query($conn, $result_usuario);
-	echo "<table  class='table table-striped' id='tabela-usuarios_filtros'>";
+	echo "<table  class='table table-striped' >";
 	echo "<thead>";
+	
 	echo "<tr>";
 	echo "<th scope='col'>" . "ID" . "<br/>" . "</th>";
 	echo "<th scope='col'>" . "NOME" . "<br/>" . "</th>";
@@ -62,7 +63,7 @@ include_once "conexao.php";
 	echo "<th scope='col'colspan= 2>" . "AÇÕES" . "<br/>" . "</th>";
 	echo "<tr/>";
 	echo "</thead>";
-	echo "<tbody>";
+	echo "<tbody id='tabela-usuarios_filtros'>";
 
 	while ($row_usuario = mysqli_fetch_assoc($resultado_usuario)) {
 
