@@ -4,3 +4,9 @@ table {
     width: 100%;
 
 }
+nav a {
+    display: inline;
+}
+body h1{
+    text-align:justify;
+}
